@@ -32,7 +32,7 @@ public abstract class Skill : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitAttackTime()
+    protected IEnumerator WaitAttackTime()
     {
         yield return new WaitForSeconds(_waitTimeToControl);
         _isAttacking = false;

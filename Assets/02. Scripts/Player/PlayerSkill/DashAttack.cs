@@ -10,24 +10,39 @@ public class DashAttack : Skill
     [Space]
     [SerializeField] private GameObject _skillEffect;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(_pressButton) && !_isAttacking)
+        {
+            Execute();
+        }
+    }
+
     public override void Execute()
     {
-        _animator.SetTrigger("Skill1");
-
-        Vector3 targetDirection = gameObject.GetComponent<SpriteRenderer>().flipX ? Vector3.left : Vector3.right;
-
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, _distance);
-        foreach (RaycastHit2D hit in hits)
+        if(ComboManager.Instance.UseSkill())
         {
-            EnemyStat enemy = hit.transform.gameObject.GetComponent<EnemyStat>();
+            _isAttacking = true;
+            _playerMove.SetMovementLock(true);
+            StartCoroutine(WaitAttackTime());
 
-            if (enemy != null)
+            _animator.SetTrigger("Skill1");
+
+            Vector3 targetDirection = gameObject.GetComponent<SpriteRenderer>().flipX ? Vector3.left : Vector3.right;
+
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, _distance);
+            foreach (RaycastHit2D hit in hits)
             {
-                enemy.GetHit();
-                Instantiate(_skillEffect, hit.transform.position, Quaternion.identity);
-            }
-        }
+                EnemyStat enemy = hit.transform.gameObject.GetComponent<EnemyStat>();
 
-        transform.position += targetDirection * _distance;
+                if (enemy != null)
+                {
+                    enemy.GetHit();
+                    Instantiate(_skillEffect, hit.transform.position, Quaternion.identity);
+                }
+            }
+
+            transform.position += targetDirection * _distance;
+        }
     }
 }
