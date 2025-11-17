@@ -46,6 +46,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if(_target != null)
         {
+            AudioManager.Instance.PlaySound("Fire", AudioType.SFX);
             _target.GetDamage(1f);
         }
     }
