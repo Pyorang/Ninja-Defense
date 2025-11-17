@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 367ab1fc03eb7a74792a7ce4530a181d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168455
+  packageName: 2D Pixel Hero Cowboy
+  packageVersion: 1.0
+  assetPath: Assets/Cowboy Hero/Animation/acquire.anim
+  uploadId: 367176

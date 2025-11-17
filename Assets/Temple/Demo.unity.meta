@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a3dc55e9c58b8c64e9d8786bcb246378
+timeCreated: 1504638112
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97429
+  packageName: 2D Pixel Temple
+  packageVersion: 1.0
+  assetPath: Assets/Temple/Demo.unity
+  uploadId: 199709

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: db7a28d1f15bcbe41ba47ae8747b50fd
+timeCreated: 1502135731
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 97429
+  packageName: 2D Pixel Temple
+  packageVersion: 1.0
+  assetPath: Assets/Temple/Read Me.txt
+  uploadId: 199709

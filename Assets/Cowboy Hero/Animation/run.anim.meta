@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 38e78d90bf1c7c541b2e596eb8c14a1e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168455
+  packageName: 2D Pixel Hero Cowboy
+  packageVersion: 1.0
+  assetPath: Assets/Cowboy Hero/Animation/run.anim
+  uploadId: 367176

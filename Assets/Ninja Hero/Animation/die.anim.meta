@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 781e4e0f4e64a2146a6831b6df655e27
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 164290
+  packageName: 2D Pixel Hero Ninja
+  packageVersion: 2.0
+  assetPath: Assets/Ninja Hero/Animation/die.anim
+  uploadId: 363716
