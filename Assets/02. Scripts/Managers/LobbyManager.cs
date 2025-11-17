@@ -19,7 +19,7 @@ public class LobbyManager : MonoBehaviour
 
     private void Start()
     {
-        //AudioManager.Instance.PlaySound("Lobby", AudioType.BGM);
+        AudioManager.Instance.PlaySound("Lobby", AudioType.BGM);
     }
 
     public void OnClickStartButton()
