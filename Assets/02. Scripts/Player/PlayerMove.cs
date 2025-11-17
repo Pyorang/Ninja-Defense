@@ -21,16 +21,17 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private readonly int _groundLayer = 6;
+    [Header("바닥 레이어 설정")]
+    [SerializeField] private int _groundLayer = 6;
+    
+    private bool _interrupted = false;
+    private Vector3 _direction;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private SpriteRenderer _spriteRender;
-    private Vector3 _direction;
 
     // NOTE : 입력 키 관련 변수
-    private KeyCode _leftMoveKey = KeyCode.LeftArrow;
-    private KeyCode _rightMoveKey = KeyCode.RightArrow;
     private KeyCode _jumpKey = KeyCode.Space;
 
     private void Awake()
@@ -42,23 +43,19 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        HorizontalMove();
-        GetJumpInput();
+        if(!_interrupted)
+        {
+            HorizontalMove();
+            GetJumpInput();
+        }
     }
 
     private void HorizontalMove()
     {
         _direction = Vector3.zero;
 
-        if(Input.GetKey(_leftMoveKey))
-        {
-            _direction += Vector3.left;
-        }
-
-        if(Input.GetKey(_rightMoveKey))
-        {
-            _direction += Vector3.right;
-        }
+        float moveX = Input.GetAxisRaw("Horizontal");
+        _direction = new Vector3(moveX, 0f, 0f);
 
         transform.position += _direction * _moveSpeed * Time.deltaTime;
         FlipSprite(_direction);
@@ -94,7 +91,7 @@ public class PlayerMove : MonoBehaviour
 
     private void GetJumpInput()
     {
-        if(Input.GetKeyDown(_jumpKey) && _jumpCount >0)
+        if(Input.GetKeyDown(_jumpKey) && _jumpCount > 0)
         {
             JumpCount--;
             Jump();
@@ -113,5 +110,9 @@ public class PlayerMove : MonoBehaviour
         {
             JumpCount = _maxJumpCount;
         }
+    }
+    public void SetMovementLock(bool isLocked)
+    {
+        _interrupted = isLocked;
     }
 }
