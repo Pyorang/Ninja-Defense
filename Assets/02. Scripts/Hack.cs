@@ -32,5 +32,6 @@ public class Hack : MonoBehaviour
     public void ProcessGameOver()
     {
         ScoreManager.Instance.Save();
+        InGameManager.Instance.SetActivePanel();
     }
 }

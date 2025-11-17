@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     private static ScoreManager s_Instance;
     public static ScoreManager Instance => s_Instance;
+    private bool _isGameOVer = false;
 
     [Header("점수 텍스트")]
     [Space]
@@ -54,6 +55,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int score)
     {
+        if (_isGameOVer) return;
         if (score <= 0) return;
 
         CurrentScore += score;
@@ -79,6 +81,7 @@ public class ScoreManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data, true);
         PlayerPrefs.SetString("UserData", json);
+        _isGameOVer = true;
     }
 
     private void Load()
