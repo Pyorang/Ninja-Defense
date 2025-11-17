@@ -19,7 +19,7 @@ public class Attack : Skill
         {
             EnemyStat enemy = hit.transform.gameObject.GetComponent<EnemyStat>();
 
-            if( enemy != null && enemy.gameObject.layer == 7 )
+            if( enemy != null && enemy.gameObject.layer == _enemyLayer)
             {
                 enemy.GetHit();
             }
