@@ -31,6 +31,16 @@ public class DashAttack : Skill
             Vector3 targetDirection = gameObject.GetComponent<SpriteRenderer>().flipX ? Vector3.left : Vector3.right;
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, _distance);
+
+            if(hits.Length > 1)
+            {
+                AudioManager.Instance.PlaySound("LeftShift", AudioType.SFX);
+            }
+            else
+            {
+                AudioManager.Instance.PlaySound("Z", AudioType.SFX);
+            }
+
             foreach (RaycastHit2D hit in hits)
             {
                 EnemyStat enemy = hit.transform.gameObject.GetComponent<EnemyStat>();
