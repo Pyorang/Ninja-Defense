@@ -13,6 +13,10 @@ public class Hack : MonoBehaviour
         {
             _hp = Mathf.Max(0, value);
             _slider.value = _hp / 100f;
+            if (_hp == 0)
+            {
+                ProcessGameOver();
+            }
         }
     }
 
@@ -23,5 +27,10 @@ public class Hack : MonoBehaviour
     public void GetDamage(float damage)
     {
         HP -= damage;
+    }
+
+    public void ProcessGameOver()
+    {
+        ScoreManager.Instance.Save();
     }
 }

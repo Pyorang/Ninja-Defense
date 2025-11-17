@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class EnemyStat : MonoBehaviour
 {
+    [Header("적 점수")]
+    [Space]
+    [SerializeField] private int _enemyScore = 100;
+
     [Header("적 아이템 스폰 확률")]
     [Space]
     [SerializeField] private int _spawnRate = 30;
@@ -37,8 +41,8 @@ public class EnemyStat : MonoBehaviour
     {
         _animator.SetTrigger("Die");
         AudioManager.Instance.PlaySound("EnemyHit", AudioType.SFX);
-        DropItem();
         ComboManager.Instance.AddCombo(1);
+        ScoreManager.Instance.AddScore(_enemyScore);
 
         gameObject.layer = _diedEnemyLayer;
 
@@ -62,6 +66,7 @@ public class EnemyStat : MonoBehaviour
     private IEnumerator DestroyAfterTime(float delay)
     {
         yield return new WaitForSeconds(delay);
+        DropItem();
         gameObject.SetActive(false);
     }
 }

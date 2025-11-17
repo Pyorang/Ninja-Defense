@@ -8,6 +8,10 @@ public class ComboManager : MonoBehaviour
     private static ComboManager s_Instance;
     public static ComboManager Instance => s_Instance;
 
+    [Header("콤보당 점수")]
+    [Space]
+    [SerializeField] private int _comboScore = 10;
+
     private bool _isContinuousAttack = false;
     private int _currentCombo = 0;
     public int CurrentCombo
@@ -69,6 +73,7 @@ public class ComboManager : MonoBehaviour
         for(int i = 0; i < combo; i++)
         {
             CurrentCombo++;
+            ScoreManager.Instance.AddScore(_comboScore * CurrentCombo);
         }
 
         _skillCombo = Mathf.Min(_skillCombo + combo, _comboNeedToCast);
