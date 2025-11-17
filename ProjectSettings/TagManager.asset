@@ -44,6 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Red Door
+    uniqueID: 1032432595
+    locked: 0
+  - name: Shuriken
+    uniqueID: 559847141
+    locked: 0
   - name: Player
     uniqueID: 1428125817
     locked: 0

@@ -1440,18 +1440,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 993225872105204154, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 384
-      objectReference: {fileID: 0}
-    - target: {fileID: 3718411909703970849, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
-      propertyPath: _distance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937262454713389811, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
-      propertyPath: _distance
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5680515688870358710, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6207,7 +6195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3341089563710745730, guid: 9b1a0be4abb946647b899cdfffce16c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3341089563710745730, guid: 9b1a0be4abb946647b899cdfffce16c5, type: 3}
       propertyPath: m_LocalPosition.y

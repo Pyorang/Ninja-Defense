@@ -40,13 +40,12 @@ public class Shuriken : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioManager.Instance.PlaySound("ShurikenHit", AudioType.SFX);
-
         EnemyStat enemy = collision.gameObject.GetComponent<EnemyStat>();
 
         if (enemy != null)
         {
             enemy.GetHit();
+            AudioManager.Instance.PlaySound("ShurikenHit", AudioType.SFX);
             Destroy(gameObject);
         }
 
@@ -54,6 +53,7 @@ public class Shuriken : MonoBehaviour
         {
             _hitTheWall = true;
             _animator.SetTrigger("HitWall");
+            AudioManager.Instance.PlaySound("ShurikenHit", AudioType.SFX);
 
             if (_direction.x < 0)
             {

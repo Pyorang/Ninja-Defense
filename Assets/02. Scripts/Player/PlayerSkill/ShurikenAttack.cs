@@ -23,7 +23,7 @@ public class ShurikenAttack : Skill
     [SerializeField] private GameObject _shurikenPrefab;
 
     [Header("표창 던지기 위치 조정")]
-    [SerializeField] private float _offset = 1f;
+    [SerializeField] private float _offset = 2f;
     public override void Execute()
     {
         _animator.SetTrigger("Skill2");
