@@ -9,9 +9,6 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float _attackAnimationTime = 2f;
     private float _attackTimeimeElapsed = 2f;
 
-    [Header("적 총알 프리팹")]
-    [SerializeField] private GameObject _bulletPrefab;
-
     private Animator _animator;
 
     private void Awake()
@@ -32,6 +29,11 @@ public class EnemyAttack : MonoBehaviour
                 _attackTimeimeElapsed = 0f;
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        _startAttack = false;
     }
 
     public void StartAttack()

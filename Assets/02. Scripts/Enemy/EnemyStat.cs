@@ -6,7 +6,8 @@ public class EnemyStat : MonoBehaviour
     [SerializeField] private EnemyMove _enemyMove;
     [SerializeField] private EnemyAttack _enemyAttack;
 
-    [Header("죽을 때 레이어 처리")]
+    [Header("레이어 처리")]
+    [SerializeField] private int _enemyLayer = 7;
     [SerializeField] private int _diedEnemyLayer = 8;
 
     private Animator _animator;
@@ -14,6 +15,11 @@ public class EnemyStat : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+    }
+
+    private void OnEnable()
+    {
+        gameObject.layer = _enemyLayer;
     }
 
     public void GetHit()
@@ -35,6 +41,6 @@ public class EnemyStat : MonoBehaviour
     private IEnumerator DestroyAfterTime(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

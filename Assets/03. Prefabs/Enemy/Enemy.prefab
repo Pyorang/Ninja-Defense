@@ -136,7 +136,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 384
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04, y: 0.02}
+  m_Offset: {x: -0.13, y: 0.06}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -164,7 +164,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6, y: 0.78}
+  m_Size: {x: 1.7, y: 2.37}
   m_EdgeRadius: 0
 --- !u!95 &3529883034982205889
 Animator:
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyMove: {fileID: 2627037886371417223}
   _enemyAttack: {fileID: 2359906463216948508}
+  _enemyLayer: 7
   _diedEnemyLayer: 8
 --- !u!114 &2627037886371417223
 MonoBehaviour:
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
-  _range: 4
+  _range: 10
   _enemyAttack: {fileID: 2359906463216948508}
   _target: {fileID: 0}
 --- !u!114 &2359906463216948508
@@ -232,4 +233,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackAnimationTime: 2
-  _bulletPrefab: {fileID: 0}
