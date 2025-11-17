@@ -330,6 +330,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8443407632432112717}
     - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
+      propertyPath: _intervalCoolTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
       propertyPath: _maxSpawnCoolTime
       value: 10
       objectReference: {fileID: 0}
@@ -1185,6 +1189,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 8443407632432112717}
+    - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
+      propertyPath: _intervalCoolTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
       propertyPath: _maxSpawnCoolTime
       value: 10
@@ -2251,6 +2259,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 8443407632432112717}
+    - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
+      propertyPath: _intervalCoolTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
       propertyPath: _maxSpawnCoolTime
       value: 10
@@ -6115,6 +6127,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 8443407632432112717}
+    - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
+      propertyPath: _intervalCoolTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8615472504380448590, guid: 038f0f9967a37e84594c4854d6bd2937, type: 3}
       propertyPath: _maxSpawnCoolTime
       value: 10

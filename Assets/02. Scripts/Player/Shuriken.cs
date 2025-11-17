@@ -42,7 +42,7 @@ public class Shuriken : MonoBehaviour
     {
         EnemyStat enemy = collision.gameObject.GetComponent<EnemyStat>();
 
-        if (enemy != null)
+        if (!_hitTheWall && enemy != null)
         {
             enemy.GetHit();
             AudioManager.Instance.PlaySound("ShurikenHit", AudioType.SFX);
