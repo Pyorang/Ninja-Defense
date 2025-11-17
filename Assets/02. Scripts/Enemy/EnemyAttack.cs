@@ -5,7 +5,12 @@ public class EnemyAttack : MonoBehaviour
 {
     private bool _startAttack = false;
 
+    [Header("적 공격 데미지")]
+    [Space]
+    [SerializeField] private float _dameage = 5f;
+
     [Header("적 공격 시간")]
+    [Space]
     [SerializeField] private float _attackAnimationTime = 2f;
     private float _attackTimeimeElapsed = 2f;
 
@@ -47,7 +52,7 @@ public class EnemyAttack : MonoBehaviour
         if(_target != null)
         {
             AudioManager.Instance.PlaySound("Fire", AudioType.SFX);
-            _target.GetDamage(2f);
+            _target.GetDamage(_dameage);
         }
     }
 }
