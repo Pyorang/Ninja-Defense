@@ -31,7 +31,6 @@ public class PlayerMove : MonoBehaviour
     // NOTE : 입력 키 관련 변수
     private KeyCode _leftMoveKey = KeyCode.LeftArrow;
     private KeyCode _rightMoveKey = KeyCode.RightArrow;
-    private KeyCode _downMoveKey = KeyCode.DownArrow;
     private KeyCode _jumpKey = KeyCode.Space;
 
     private void Awake()
