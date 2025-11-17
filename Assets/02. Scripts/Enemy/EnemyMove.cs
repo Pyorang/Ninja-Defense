@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
     [Header("기타")]
     [Space] 
     [SerializeField] private EnemyAttack _enemyAttack;
-    [SerializeField] private GameObject _target;
+    [SerializeField] private Hack _target;
 
     private bool _startAttack = false;
     private Vector3 _direction;
@@ -67,10 +67,10 @@ public class EnemyMove : MonoBehaviour
     {
         _startAttack = true;
         _animator.SetBool("Run", false);
-        _enemyAttack.StartAttack();
+        _enemyAttack.StartAttack(_target);
     }
 
-    public void LockTarget(GameObject target)
+    public void LockTarget(Hack target)
     {
         _target = target;
     }

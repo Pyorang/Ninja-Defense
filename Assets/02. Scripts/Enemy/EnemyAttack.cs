@@ -9,6 +9,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float _attackAnimationTime = 2f;
     private float _attackTimeimeElapsed = 2f;
 
+    private Hack _target;
     private Animator _animator;
 
     private void Awake()
@@ -25,7 +26,6 @@ public class EnemyAttack : MonoBehaviour
             if(_attackTimeimeElapsed >= _attackAnimationTime)
             {
                 _animator.SetTrigger("Attack");
-                Fire();
                 _attackTimeimeElapsed = 0f;
             }
         }
@@ -36,13 +36,17 @@ public class EnemyAttack : MonoBehaviour
         _startAttack = false;
     }
 
-    public void StartAttack()
+    public void StartAttack(Hack target)
     {
         _startAttack = true;
+        _target = target;
     }
 
-    private void Fire()
+    public void Fire()
     {
-
+        if(_target != null)
+        {
+            _target.GetDamage(1f);
+        }
     }
 }
