@@ -44,6 +44,11 @@ public abstract class Skill : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        s_images.Clear();
+    }
+
     protected IEnumerator WaitAttackTime()
     {
         yield return new WaitForSeconds(_waitTimeToControl);

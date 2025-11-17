@@ -71,6 +71,10 @@ public class ComboManager : MonoBehaviour
         }
 
         _comboText.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
         SkillCombo = 0;
     }
 
