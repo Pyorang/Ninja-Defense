@@ -26,7 +26,7 @@ public abstract class Skill : MonoBehaviour
         if(Input.GetKeyDown(_pressButton) && !_isAttacking)
         {
             _isAttacking = true;
-            _playerMove.ChangeInterrupted();
+            _playerMove.SetMovementLock(true);
             Execute();
             StartCoroutine(WaitAttackTime());
         }
@@ -36,7 +36,7 @@ public abstract class Skill : MonoBehaviour
     {
         yield return new WaitForSeconds(_waitTimeToControl);
         _isAttacking = false;
-        _playerMove.ChangeInterrupted();
+        _playerMove.SetMovementLock(false);
     }
 
     public abstract void Execute();

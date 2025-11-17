@@ -7,16 +7,16 @@ public class Shuriken : MonoBehaviour
 
     [Header("수리검 이동속도")]
     [SerializeField] private float _speed = 0.05f;
-    private Vector3 direction;
+    private Vector3 _direction;
 
     private void Update()
     {
-        transform.position += direction * _speed * Time.deltaTime;
+        transform.position += _direction * _speed * Time.deltaTime;
     }
 
     public void SetDirection(Vector3 direction)
     {
-        this.direction = direction;
+        this._direction = direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
