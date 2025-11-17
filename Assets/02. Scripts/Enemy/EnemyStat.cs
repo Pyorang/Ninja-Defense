@@ -19,6 +19,8 @@ public class EnemyStat : MonoBehaviour
     public void GetHit()
     {
         _animator.SetTrigger("Die");
+        ComboManager.Instance.AddCombo(1);
+
         gameObject.layer = _diedEnemyLayer;
 
         _enemyMove.enabled = false;

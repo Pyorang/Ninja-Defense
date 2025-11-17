@@ -204,6 +204,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _jumpForce: 5
   _maxJumpCount: 2
+  _groundLayer: 6
 --- !u!114 &3718411909703970849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pressButton: 122
   _waitTimeToControl: 0.7
-  _damage: 10
   _distance: 1
 --- !u!114 &3937262454713389811
 MonoBehaviour:
@@ -234,8 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pressButton: 304
   _waitTimeToControl: 0.9
-  _damage: 70
   _distance: 3
+  _skillEffect: {fileID: 1933512559957340772, guid: 345c5c7779e76d34aaf50d998668a289, type: 3}
 --- !u!114 &8091145591026863515
 MonoBehaviour:
   m_ObjectHideFlags: 0
