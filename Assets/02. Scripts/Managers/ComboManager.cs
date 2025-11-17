@@ -44,6 +44,8 @@ public class ComboManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        _comboText.gameObject.SetActive(false);
     }
 
     private void Update()
