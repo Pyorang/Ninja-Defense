@@ -58,6 +58,7 @@ public class ComboManager : MonoBehaviour
             {
                 _comboText.gameObject.SetActive(false);
                 CurrentCombo = 0;
+                _skillCombo = 0;
                 _resetTimeElapsed = 0f;
             }
         }

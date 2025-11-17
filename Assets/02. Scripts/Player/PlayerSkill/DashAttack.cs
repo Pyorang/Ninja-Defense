@@ -10,6 +10,9 @@ public class DashAttack : Skill
     [Space]
     [SerializeField] private GameObject _skillEffect;
 
+    [Header("적 레이어 설정")]
+    [SerializeField] private int _enemyLayer = 7;
+
     private void Update()
     {
         if (Input.GetKeyDown(_pressButton) && !_isAttacking)
@@ -45,7 +48,7 @@ public class DashAttack : Skill
             {
                 EnemyStat enemy = hit.transform.gameObject.GetComponent<EnemyStat>();
 
-                if (enemy != null)
+                if (enemy != null && enemy.gameObject.layer == _enemyLayer)
                 {
                     enemy.GetHit();
                     Instantiate(_skillEffect, hit.transform.position, Quaternion.identity);

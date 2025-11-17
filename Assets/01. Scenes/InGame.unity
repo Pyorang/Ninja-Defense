@@ -1448,6 +1448,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4153522615931194177, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153522615957976965, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5680515688870358710, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1493,11 +1501,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8091145591026863515, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
+      propertyPath: _glowEffectPrefab
+      value: 
+      objectReference: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+    - target: {fileID: 8091145591026863515, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
       propertyPath: _shurikenCountText
       value: 
       objectReference: {fileID: 2118264196}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4153522615931194177, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
