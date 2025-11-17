@@ -36,6 +36,11 @@ public class DashAttack : Skill
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, _distance);
 
+            if(hits.Length > 3)
+            {
+                CameraManager.Instance.HighlightCharacter(targetDirection.x > 0);
+            }
+
             if(hits.Length > 1)
             {
                 AudioManager.Instance.PlaySound("LeftShift", AudioType.SFX);
