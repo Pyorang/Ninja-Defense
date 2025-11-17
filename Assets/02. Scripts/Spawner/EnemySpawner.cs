@@ -5,7 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("타겟 설정")]
     [Space]
-    [SerializeField] private GameObject _target;
+    [SerializeField] private Hack _target;
 
     [Header("스폰 쿨타임")]
     [Space]
