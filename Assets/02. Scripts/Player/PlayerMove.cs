@@ -1,11 +1,19 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
     [Header("플레이어 이동")]
+    [Space]
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private int _maxJumpCount = 2;
+
+    [Header("플레이어 최대 이동 위치")]
+    [Space]
+    [SerializeField] private float _minX = -22f;
+    [SerializeField] private float _maxX = 22f;
+
 
     private int _jumpCount = 0;
     private int JumpCount
@@ -48,6 +56,7 @@ public class PlayerMove : MonoBehaviour
             HorizontalMove();
             GetJumpInput();
         }
+        CheckOverBoundary();
     }
 
     private void HorizontalMove()
@@ -55,7 +64,7 @@ public class PlayerMove : MonoBehaviour
         _direction = Vector3.zero;
 
         float moveX = Input.GetAxisRaw("Horizontal");
-        _direction = new Vector3(moveX, 0f, 0f);
+        _direction = new Vector3(moveX, 0f , 0f);
 
         transform.position += _direction * _moveSpeed * Time.deltaTime;
         FlipSprite(_direction);
@@ -96,6 +105,11 @@ public class PlayerMove : MonoBehaviour
             JumpCount--;
             Jump();
         }
+    }
+
+    private void CheckOverBoundary()
+    {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, _minX, _maxX), transform.position.y, 0f);
     }
 
     private void Jump()

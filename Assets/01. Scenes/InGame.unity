@@ -1450,6 +1450,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 993225872105204154, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3718411909703970849, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
       propertyPath: _coolTimeImage
       value: 
@@ -1509,6 +1513,10 @@ PrefabInstance:
     - target: {fileID: 7334720855756508212, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334720855756508212, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8091145591026863515, guid: c269cab71eacf724faff01d1e5deb2cd, type: 3}
       propertyPath: _coolTimeImage
