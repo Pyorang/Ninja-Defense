@@ -19,6 +19,7 @@ public class EnemyStat : MonoBehaviour
     public void GetHit()
     {
         _animator.SetTrigger("Die");
+        AudioManager.Instance.PlaySound("EnemyHit", AudioType.SFX);
         ComboManager.Instance.AddCombo(1);
 
         gameObject.layer = _diedEnemyLayer;

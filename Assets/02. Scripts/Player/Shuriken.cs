@@ -40,6 +40,8 @@ public class Shuriken : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AudioManager.Instance.PlaySound("ShurikenHit", AudioType.SFX);
+
         EnemyStat enemy = collision.gameObject.GetComponent<EnemyStat>();
 
         if (enemy != null)

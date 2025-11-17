@@ -8,6 +8,7 @@ public class Attack : Skill
     public override void Execute()
     {
         _animator.SetTrigger("Attack");
+        AudioManager.Instance.PlaySound("Z", AudioType.SFX);
 
         Vector3 targetDirection = gameObject.GetComponent<SpriteRenderer>().flipX ? Vector3.left : Vector3.right;
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, _distance);
