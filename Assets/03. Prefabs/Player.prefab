@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7334720855756508212}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -155,17 +155,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06, y: 0.02}
+  m_Offset: {x: -0.21, y: 0.07}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7, y: 0.78}
+  m_Size: {x: 2.2, y: 2.4}
   m_EdgeRadius: 0
 --- !u!95 &8088669891427323618
 Animator:
@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498741d9b59066148a117b7a19bbfb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 5
-  _jumpForce: 5
+  _moveSpeed: 20
+  _jumpForce: 20
   _maxJumpCount: 2
   _groundLayer: 6
 --- !u!114 &3718411909703970849
@@ -250,5 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pressButton: 120
   _waitTimeToControl: 0.5
+  _currentShurikenCount: 10
+  _shurikenCountText: {fileID: 0}
   _shurikenPrefab: {fileID: 1674162550519894708, guid: edf835ef1669bfc44b659a5f97e5474b, type: 3}
   _offset: 0.5
