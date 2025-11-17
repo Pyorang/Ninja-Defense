@@ -1,10 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shuriken : MonoBehaviour
 {
-    [Header("표창 데미지")]
-    [SerializeField] private int _damage = 50;
-
     [Header("수리검 이동속도")]
     [SerializeField] private float _speed = 0.05f;
     private Vector3 _direction;
@@ -21,6 +19,12 @@ public class Shuriken : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //적과 맞았을 떄 & 벽과 부딪혔을 떄
+        EnemyStat enemy = collision.gameObject.GetComponent<EnemyStat>();
+
+        if (enemy != null)
+        {
+            enemy.GetHit();
+            Destroy(gameObject);
+        }
     }
 }
