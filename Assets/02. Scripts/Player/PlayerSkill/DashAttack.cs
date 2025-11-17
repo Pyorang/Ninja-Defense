@@ -15,7 +15,7 @@ public class DashAttack : Skill
 
     private void Update()
     {
-        if (Input.GetKeyDown(_pressButton) && !_isAttacking)
+        if (Input.GetKeyDown(_pressButton) && !s_isAttacking)
         {
             Execute();
         }
@@ -25,9 +25,10 @@ public class DashAttack : Skill
     {
         if(ComboManager.Instance.UseSkill())
         {
-            _isAttacking = true;
+            s_isAttacking = true;
             _playerMove.SetMovementLock(true);
             StartCoroutine(WaitAttackTime());
+            StartCoroutine(UpdateCoolTimeImage());
 
             _animator.SetTrigger("Skill1");
 
@@ -56,6 +57,24 @@ public class DashAttack : Skill
             }
 
             transform.position += targetDirection * _distance;
+        }
+    }
+
+    public void ActivateUI()
+    {
+        if (!s_images.Contains(_coolTimeImage))
+        {
+            s_images.Add(_coolTimeImage);
+            _coolTimeImage.fillAmount = 0;
+        }
+    }
+
+    public void DeactivateUI()
+    {
+        if (s_images.Contains(_coolTimeImage))
+        {
+            s_images.Remove(_coolTimeImage);
+            _coolTimeImage.fillAmount = 1;
         }
     }
 }

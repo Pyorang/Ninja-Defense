@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ public class ComboManager : MonoBehaviour
 
     private bool _isContinuousAttack = false;
     private int _currentCombo = 0;
+    
+    [SerializeField] private DashAttack _dashAttack;
+
     public int CurrentCombo
     {
         get { return _currentCombo; }
@@ -30,6 +34,23 @@ public class ComboManager : MonoBehaviour
 
     private static readonly int _comboNeedToCast = 3;
     private int _skillCombo = 0;
+    public int SkillCombo
+    {
+        get { return _skillCombo; }
+        set
+        {
+            _skillCombo = Mathf.Min(value, _comboNeedToCast);
+
+            if (_skillCombo == _comboNeedToCast)
+            {
+                _dashAttack.ActivateUI();
+            }
+            else
+            {
+                _dashAttack.DeactivateUI();
+            }
+        }
+    }
 
     [Header("콤보 초기화 시간")]
     [SerializeField] private float _comboResetTime = 3f;
@@ -50,6 +71,7 @@ public class ComboManager : MonoBehaviour
         }
 
         _comboText.gameObject.SetActive(false);
+        SkillCombo = 0;
     }
 
     private void Update()
@@ -62,7 +84,7 @@ public class ComboManager : MonoBehaviour
             {
                 _comboText.gameObject.SetActive(false);
                 CurrentCombo = 0;
-                _skillCombo = 0;
+                SkillCombo = 0;
                 _resetTimeElapsed = 0f;
             }
         }
@@ -76,14 +98,14 @@ public class ComboManager : MonoBehaviour
             ScoreManager.Instance.AddScore(_comboScore * CurrentCombo);
         }
 
-        _skillCombo = Mathf.Min(_skillCombo + combo, _comboNeedToCast);
+        SkillCombo += combo;
     }
 
     public bool UseSkill()
     {
-        if(_skillCombo == _comboNeedToCast)
+        if(SkillCombo == _comboNeedToCast)
         {
-            _skillCombo--;
+            SkillCombo--;
             return true;
         }
 
