@@ -156,7 +156,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 311
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -199,3 +199,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 15
+  _groundLayer: 6
+  _hitWallSprite: {fileID: 21300000, guid: 299f75dbd93614b43ac9d2bf618dfe93, type: 3}
