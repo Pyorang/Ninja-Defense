@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     private readonly int _groundLayer = 6;
+    private bool _interrupted = false;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -42,8 +43,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        HorizontalMove();
-        GetJumpInput();
+        if(!_interrupted)
+        {
+            HorizontalMove();
+            GetJumpInput();
+        }
     }
 
     private void HorizontalMove()
@@ -113,5 +117,9 @@ public class PlayerMove : MonoBehaviour
         {
             JumpCount = _maxJumpCount;
         }
+    }
+    public void ChangeInterrupted()
+    {
+        _interrupted = !_interrupted;
     }
 }
