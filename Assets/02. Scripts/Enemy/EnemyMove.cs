@@ -29,10 +29,19 @@ public class EnemyMove : MonoBehaviour
 
     private void Start()
     {
-        // NOTE : 타겟 설정 필요
         _direction = _target.transform.position.x - transform.position.x > 0 ? Vector3.right : Vector3.left;
         _spriteRenderer.flipX = _direction.x > 0 ? false : true;
         _animator.SetBool("Run", true);
+    }
+
+    private void OnEnable()
+    {
+        if(_target != null)
+        {
+            _direction = _target.transform.position.x - transform.position.x > 0 ? Vector3.right : Vector3.left;
+            _spriteRenderer.flipX = _direction.x > 0 ? false : true;
+            _animator.SetBool("Run", true);
+        }
     }
 
     private void Update()
@@ -49,10 +58,20 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        _startAttack = false;
+    }
+
     private void StartAttack()
     {
         _startAttack = true;
         _animator.SetBool("Run", false);
         _enemyAttack.StartAttack();
+    }
+
+    public void LockTarget(GameObject target)
+    {
+        _target = target;
     }
 }
