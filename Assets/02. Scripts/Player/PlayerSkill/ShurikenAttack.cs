@@ -22,6 +22,10 @@ public class ShurikenAttack : Skill
     [Space]
     [SerializeField] private GameObject _shurikenPrefab;
 
+    [Header("표창 먹는 효과")]
+    [Space]
+    [SerializeField] private GameObject _glowEffectPrefab;
+
     [Header("표창 던지기 위치 조정")]
     [SerializeField] private float _offset = 2f;
     public override void Execute()
@@ -41,5 +45,12 @@ public class ShurikenAttack : Skill
             Shuriken shuriken = spawnedShuriken.GetComponent<Shuriken>();
             shuriken.SetDirection(targetDirection);
         }
+    }
+
+    public void AddShuriken(int addCount, Vector3 position)
+    {
+        ShurikenCount++;
+        AudioManager.Instance.PlaySound("Item", AudioType.SFX);
+        Instantiate(_glowEffectPrefab, position, Quaternion.identity);
     }
 }

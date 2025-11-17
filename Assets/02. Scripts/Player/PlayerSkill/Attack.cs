@@ -5,6 +5,9 @@ public class Attack : Skill
     [Header("평타 사거리")]
     [SerializeField] private float _distance = 3f;
 
+    [Header("적 레이어 설정")]
+    [SerializeField] private int _enemyLayer = 7;
+
     public override void Execute()
     {
         _animator.SetTrigger("Attack");
@@ -16,7 +19,7 @@ public class Attack : Skill
         {
             EnemyStat enemy = hit.transform.gameObject.GetComponent<EnemyStat>();
 
-            if( enemy != null )
+            if( enemy != null && enemy.gameObject.layer == 7 )
             {
                 enemy.GetHit();
             }
