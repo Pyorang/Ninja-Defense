@@ -11,10 +11,6 @@ public class EnemyStat : MonoBehaviour
     [Space]
     [SerializeField] private int _spawnRate = 30;
 
-    [Header("드롭하는 아이템")]
-    [Space]
-    [SerializeField] private GameObject _itemObject;
-
     [Header("기타 컴포넌트들")]
     [Space]
     [SerializeField] private EnemyMove _enemyMove;
@@ -59,7 +55,7 @@ public class EnemyStat : MonoBehaviour
         int randomNum = Random.Range(1, 101);
         if(randomNum <= _spawnRate)
         {
-            Instantiate(_itemObject, transform.position, Quaternion.identity);
+            ShurikenItemFactory.Instance.GetObject(transform.position);
         }
     }
 

@@ -58,7 +58,7 @@ public class DashAttack : Skill
                 if (enemy != null && enemy.gameObject.layer == _enemyLayer)
                 {
                     enemy.GetHit();
-                    Instantiate(_skillEffect, hit.transform.position, Quaternion.identity);
+                    DashAttackEffectFactory.Instance.GetObject(hit.transform.position);
                 }
             }
 
