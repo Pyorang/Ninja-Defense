@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DashAttack : Skill
@@ -11,7 +12,19 @@ public class DashAttack : Skill
     [SerializeField] private GameObject _skillEffect;
 
     [Header("적 레이어 설정")]
+    [Space]
     [SerializeField] private int _enemyLayer = 7;
+
+    [Header("땅 레이어 설정")]
+    [Space]
+    [SerializeField] private int _groundLayer = 6;
+
+    private Rigidbody2D _rigidbody;
+
+    private void Start()
+    {
+        _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -25,6 +38,9 @@ public class DashAttack : Skill
     {
         if(ComboManager.Instance.UseSkill())
         {
+            bool hitWall = false;
+            RaycastHit2D wall = new RaycastHit2D();
+
             s_isAttacking = true;
             _playerMove.SetMovementLock(true);
             StartCoroutine(WaitAttackTime());
@@ -42,7 +58,13 @@ public class DashAttack : Skill
                 AudioManager.Instance.PlaySound("Amazing", AudioType.SFX);
             }
 
-            if(hits.Length > 1)
+            else
+            {
+                StartCoroutine(MomentaryStop());
+                AudioManager.Instance.PlaySound("TimeStop", AudioType.SFX);
+            }
+
+            if (hits.Length > 1)
             {
                 AudioManager.Instance.PlaySound("LeftShift", AudioType.SFX);
             }
@@ -60,10 +82,31 @@ public class DashAttack : Skill
                     enemy.GetHit();
                     DashAttackEffectFactory.Instance.GetObject(hit.transform.position);
                 }
+
+                if(hit.collider.gameObject.layer == _groundLayer)
+                {
+                    hitWall = true;
+                    wall = hit;
+                }
             }
 
-            transform.position += targetDirection * _distance;
+            if (hitWall)
+            {
+                transform.position = wall.point - (Vector2)(targetDirection * transform.localScale.x / 2f);
+            }
+            else
+            {
+                transform.position += targetDirection * _distance;
+            }
         }
+    }
+
+    private IEnumerator MomentaryStop()
+    {
+        float originalTimeScale = Time.timeScale;
+        Time.timeScale = 0.1f;
+        yield return new WaitForSecondsRealtime(_waitTimeToControl);
+        Time.timeScale = originalTimeScale;
     }
 
     public void ActivateUI()
