@@ -108,7 +108,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -204,6 +204,8 @@ MonoBehaviour:
   _moveSpeed: 20
   _jumpForce: 20
   _maxJumpCount: 2
+  _minX: -22
+  _maxX: 22
   _groundLayer: 6
 --- !u!114 &3718411909703970849
 MonoBehaviour:
@@ -219,7 +221,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pressButton: 122
   _waitTimeToControl: 0.7
+  _coolTimeImage: {fileID: 0}
   _distance: 4
+  _enemyLayer: 7
 --- !u!114 &3937262454713389811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,8 +238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pressButton: 304
   _waitTimeToControl: 0.9
+  _coolTimeImage: {fileID: 0}
   _distance: 12
   _skillEffect: {fileID: 1933512559957340772, guid: 345c5c7779e76d34aaf50d998668a289, type: 3}
+  _enemyLayer: 7
 --- !u!114 &8091145591026863515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pressButton: 120
   _waitTimeToControl: 0.5
+  _coolTimeImage: {fileID: 0}
   _currentShurikenCount: 10
   _shurikenCountText: {fileID: 0}
   _shurikenPrefab: {fileID: 1674162550519894708, guid: edf835ef1669bfc44b659a5f97e5474b, type: 3}

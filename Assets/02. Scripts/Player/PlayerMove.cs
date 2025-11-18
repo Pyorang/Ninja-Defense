@@ -56,6 +56,7 @@ public class PlayerMove : MonoBehaviour
             HorizontalMove();
             GetJumpInput();
         }
+        
         CheckOverBoundary();
     }
 
@@ -66,7 +67,7 @@ public class PlayerMove : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         _direction = new Vector3(moveX, 0f , 0f);
 
-        transform.position += _direction * _moveSpeed * Time.deltaTime;
+        _rigidbody.linearVelocityX = moveX * _moveSpeed;
         FlipSprite(_direction);
         ProcessRunAnimation(_direction);
     }
