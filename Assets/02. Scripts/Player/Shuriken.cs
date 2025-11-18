@@ -10,12 +10,19 @@ public class Shuriken : MonoBehaviour
     [Header("수리검 사라지는 시간")]
     [SerializeField] private float _destroyTime = 5.0f;
 
+    [Header("플레이어 최대 이동 위치")]
+    [Space]
+    [SerializeField] private float _minX = -22f;
+    [SerializeField] private float _maxX = 22f;
+
     private bool _hitTheWall = false;
     private Vector3 _direction;
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
 
+    [Header("벽 충돌 관련")]
+    [Space]
     [SerializeField] private int _groundLayer = 6;
     [SerializeField] private Sprite _hitWallSprite;
 
@@ -25,11 +32,27 @@ public class Shuriken : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void OnDisable()
+    {
+        _hitTheWall = false;
+        _spriteRenderer.flipX = false;
+        _animator.ResetTrigger("HitWall");
+    }
     private void Update()
     {
-        if(!_hitTheWall)
+        CheckOverBoundary();
+
+        if (!_hitTheWall)
         {
             transform.position += _direction * _speed * Time.deltaTime;
+        }
+    }
+
+    private void CheckOverBoundary()
+    {
+        if(transform.position.x < _minX || transform.position.x > _maxX)
+        {
+            gameObject.SetActive(false);
         }
     }
 
