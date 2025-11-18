@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 20
-  _jumpForce: 20
+  _jumpForce: 27
   _maxJumpCount: 2
   _minX: -22
   _maxX: 22
