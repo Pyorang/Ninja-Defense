@@ -13,7 +13,7 @@ public abstract class Skill : MonoBehaviour
     [Header("재사용 대기 시간")]
     [Space]
     protected static bool s_isAttacking = false;
-    [SerializeField] private float _waitTimeToControl = 1f;
+    [SerializeField] protected float _waitTimeToControl = 1f;
 
     [Header("재사용 대기 시간 이미지")]
     [Space]
