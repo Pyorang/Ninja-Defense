@@ -9,7 +9,7 @@ public class ShurikenItem : MonoBehaviour
         if(shurikenAttack != null)
         {
             shurikenAttack.AddShuriken(1, transform.position);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
