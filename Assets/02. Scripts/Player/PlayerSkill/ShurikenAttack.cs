@@ -39,7 +39,7 @@ public class ShurikenAttack : Skill
             Vector3 targetDirection = gameObject.GetComponent<SpriteRenderer>().flipX ? Vector3.left : Vector3.right;
             Vector3 firePosition = transform.position + _offset * targetDirection;
 
-            GameObject spawnedShuriken = Instantiate(_shurikenPrefab, firePosition, Quaternion.identity);
+            GameObject spawnedShuriken = ShurikenIFactory.Instance.GetObject(firePosition);
 
             ShurikenCount--;
 

@@ -7630,6 +7630,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 491894689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2075004880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2075004881}
+  m_Layer: 0
+  m_Name: ShurikenSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2075004881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075004880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4867851418929850470}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2077523232
 GameObject:
   m_ObjectHideFlags: 0
@@ -8174,6 +8206,22 @@ PrefabInstance:
       propertyPath: _gameStartText
       value: 
       objectReference: {fileID: 572623357}
+    - target: {fileID: 2807315193853682031, guid: c331719c6d678cd44a927efc49b00090, type: 3}
+      propertyPath: _backGroundColorCycle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807315193853682031, guid: c331719c6d678cd44a927efc49b00090, type: 3}
+      propertyPath: _backgrounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807315193853682031, guid: c331719c6d678cd44a927efc49b00090, type: 3}
+      propertyPath: '_backgrounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 330475675}
+    - target: {fileID: 2807315193853682031, guid: c331719c6d678cd44a927efc49b00090, type: 3}
+      propertyPath: '_backgrounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 576704188}
     - target: {fileID: 8791783513336436852, guid: c331719c6d678cd44a927efc49b00090, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8276,6 +8324,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e45086906eeebb4a89bb54affb7ae91, type: 3}
+--- !u!1001 &4867851418929850469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2075004881}
+    m_Modifications:
+    - target: {fileID: 4802313392728756946, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_Name
+      value: ShurikenSpawnFactory
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+--- !u!4 &4867851418929850470 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8225668014982192539, guid: 7c20fc15265ca394db36fcdf45353ca8, type: 3}
+  m_PrefabInstance: {fileID: 4867851418929850469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4943728887986739352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8623,3 +8733,4 @@ SceneRoots:
   - {fileID: 491894689}
   - {fileID: 1977263750}
   - {fileID: 1570048419}
+  - {fileID: 2075004881}

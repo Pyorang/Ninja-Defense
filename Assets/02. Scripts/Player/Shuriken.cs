@@ -46,7 +46,7 @@ public class Shuriken : MonoBehaviour
         {
             enemy.GetHit();
             AudioManager.Instance.PlaySound("ShurikenHit", AudioType.SFX);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         if (collision.gameObject.layer == _groundLayer)
@@ -67,6 +67,6 @@ public class Shuriken : MonoBehaviour
     private IEnumerator DestroyObject()
     {
         yield return new WaitForSeconds(_destroyTime);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

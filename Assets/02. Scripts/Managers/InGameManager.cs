@@ -12,6 +12,13 @@ public class InGameManager : MonoBehaviour
     [SerializeField] private Text _gameStartText;
     [SerializeField] private float _displayTime = 2f;
 
+    [Header("게임 배경")]
+    [Space]
+    [SerializeField] private SpriteRenderer[] _backgrounds;
+    [SerializeField] private float _backGroundColorCycle = 60f;
+    private float _timeElapsed = 0f;
+    private float _cycleRatio, _colorValue, _halfCycle;
+
     [Header("게임 종료 판넬")]
     [Space]
     [SerializeField] private GameObject _gameOverPanel;
@@ -32,6 +39,26 @@ public class InGameManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("InGame", AudioType.BGM);
         StartCoroutine(StartDescription());
+    }
+
+    private void Update()
+    {
+        // 1. 시간 업데이트
+        _timeElapsed += Time.deltaTime;
+        _cycleRatio = Mathf.Repeat(_timeElapsed, _backGroundColorCycle) / _backGroundColorCycle;
+
+        _halfCycle = _backGroundColorCycle / 2f;
+        _colorValue = Mathf.PingPong(_timeElapsed, _halfCycle) / _halfCycle;
+
+        Color newColor = new Color(1 - _colorValue, 1 - _colorValue, 1 - _colorValue);
+
+        foreach (SpriteRenderer sr in _backgrounds)
+        {
+            if (sr != null)
+            {
+                sr.color = newColor;
+            }
+        }
     }
 
     public void OnClickRestartButton()
