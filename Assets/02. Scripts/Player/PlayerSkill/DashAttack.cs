@@ -39,6 +39,7 @@ public class DashAttack : Skill
             if(hits.Length > 3)
             {
                 CameraManager.Instance.HighlightCharacter(targetDirection.x > 0);
+                AudioManager.Instance.PlaySound("Amazing", AudioType.SFX);
             }
 
             if(hits.Length > 1)
