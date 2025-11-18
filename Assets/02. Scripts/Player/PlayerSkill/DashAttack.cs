@@ -39,6 +39,7 @@ public class DashAttack : Skill
         if(ComboManager.Instance.UseSkill())
         {
             bool hitWall = false;
+            int enemyCount = 0;
             RaycastHit2D wall = new RaycastHit2D();
 
             s_isAttacking = true;
@@ -52,33 +53,13 @@ public class DashAttack : Skill
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, _distance);
 
-            if(hits.Length > 3)
-            {
-                CameraManager.Instance.HighlightCharacter(targetDirection.x > 0);
-                AudioManager.Instance.PlaySound("Amazing", AudioType.SFX);
-            }
-
-            else
-            {
-                StartCoroutine(MomentaryStop());
-                AudioManager.Instance.PlaySound("TimeStop", AudioType.SFX);
-            }
-
-            if (hits.Length > 1)
-            {
-                AudioManager.Instance.PlaySound("LeftShift", AudioType.SFX);
-            }
-            else
-            {
-                AudioManager.Instance.PlaySound("Z", AudioType.SFX);
-            }
-
             foreach (RaycastHit2D hit in hits)
             {
                 EnemyStat enemy = hit.transform.gameObject.GetComponent<EnemyStat>();
 
                 if (enemy != null && enemy.gameObject.layer == _enemyLayer)
                 {
+                    enemyCount++;
                     enemy.GetHit();
                     DashAttackEffectFactory.Instance.GetObject(hit.transform.position);
                 }
@@ -88,6 +69,26 @@ public class DashAttack : Skill
                     hitWall = true;
                     wall = hit;
                 }
+            }
+
+            if (enemyCount > 2)
+            {
+                CameraManager.Instance.HighlightCharacter(targetDirection.x > 0);
+                AudioManager.Instance.PlaySound("Amazing", AudioType.SFX);
+            }
+            else
+            {
+                StartCoroutine(MomentaryStop());
+                AudioManager.Instance.PlaySound("TimeStop", AudioType.SFX);
+            }
+
+            if (enemyCount >0)
+            {
+                AudioManager.Instance.PlaySound("LeftShift", AudioType.SFX);
+            }
+            else
+            {
+                AudioManager.Instance.PlaySound("Z", AudioType.SFX);
             }
 
             if (hitWall)
