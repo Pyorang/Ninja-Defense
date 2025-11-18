@@ -119,9 +119,23 @@ public class PlayerMove : MonoBehaviour
         _animator.SetTrigger("Jump");
     }
 
+    private bool IsGrounded()
+    {
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, Vector2.down, 1.5f);
+        foreach(RaycastHit2D ground in hit)
+        {
+            if(ground.transform != null && ground.transform.gameObject.layer == _groundLayer)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == _groundLayer)
+        if(IsGrounded())
         {
             JumpCount = _maxJumpCount;
         }
