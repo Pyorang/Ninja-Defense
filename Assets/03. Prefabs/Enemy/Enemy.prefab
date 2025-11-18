@@ -202,7 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyScore: 100
   _spawnRate: 30
-  _itemObject: {fileID: 39313475496780634, guid: ca7893228bda3bf44b203cd149caa02a, type: 3}
   _enemyMove: {fileID: 2627037886371417223}
   _enemyAttack: {fileID: 2359906463216948508}
   _enemyLayer: 7
@@ -235,5 +234,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2415348d306b45468bb4433257f749c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dameage: 5
+  _damage: 4
   _attackAnimationTime: 2
