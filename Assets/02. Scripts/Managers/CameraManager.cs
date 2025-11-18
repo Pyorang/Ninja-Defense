@@ -1,10 +1,13 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
     private static CameraManager s_Instance;
     public static CameraManager Instance => s_Instance;
+
+    private bool _isGameOver;
 
     [Header("카메라 설정")]
     [Space]
@@ -25,11 +28,16 @@ public class CameraManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        _isGameOver = false;
     }
 
     public void HighlightCharacter(bool isRight)
     {
-        StartCoroutine(ProcessHighlight(isRight));
+        if(!_isGameOver)
+        {
+            StartCoroutine(ProcessHighlight(isRight));
+        }
     }
 
     private IEnumerator ProcessHighlight(bool isRight)
@@ -39,5 +47,10 @@ public class CameraManager : MonoBehaviour
         highLightingCam.gameObject.SetActive(true);
         yield return new WaitForSeconds(_highlightTIme);
         highLightingCam.gameObject.SetActive(false);
+    }
+
+    public void HighlightOff()
+    {
+        _isGameOver = true;
     }
 }

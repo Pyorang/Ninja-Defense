@@ -28,6 +28,7 @@ public class ComboManager : MonoBehaviour
             _resetTimeElapsed = 0f;
 
             _comboText.text = $"{_currentCombo}";
+            _comboTextShadow.text = $"{_currentCombo}";
             UpdateComboText();
         }
     }
@@ -58,6 +59,7 @@ public class ComboManager : MonoBehaviour
 
     [Header("콤보 텍스트")]
     [SerializeField] private Text _comboText;
+    [SerializeField] private Text _comboTextShadow;
 
     private void Awake()
     {
@@ -71,6 +73,7 @@ public class ComboManager : MonoBehaviour
         }
 
         _comboText.gameObject.SetActive(false);
+        _comboTextShadow.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -87,6 +90,7 @@ public class ComboManager : MonoBehaviour
             if (_resetTimeElapsed >= _comboResetTime)
             {
                 _comboText.gameObject.SetActive(false);
+                _comboTextShadow.gameObject.SetActive(false);
                 CurrentCombo = 0;
                 SkillCombo = 0;
                 _resetTimeElapsed = 0f;
@@ -121,6 +125,7 @@ public class ComboManager : MonoBehaviour
         if(_currentCombo > 1)
         {
             _comboText.gameObject.SetActive(true);
+            _comboTextShadow.gameObject.SetActive(true);
             float startScale = 2f;
             Vector3 targetScale = Vector3.one;
             float duration = 0.4f;
@@ -128,6 +133,9 @@ public class ComboManager : MonoBehaviour
             _comboText.rectTransform.DOKill(true);
             _comboText.rectTransform.localScale = Vector3.one * startScale;
             _comboText.rectTransform.DOScale(targetScale, duration).SetEase(Ease.OutBack);
+            _comboTextShadow.rectTransform.DOKill(true);
+            _comboTextShadow.rectTransform.localScale = Vector3.one * startScale;
+            _comboTextShadow.rectTransform.DOScale(targetScale, duration).SetEase(Ease.OutBack);
         }
     }
 }

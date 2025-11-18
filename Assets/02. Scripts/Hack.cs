@@ -33,5 +33,6 @@ public class Hack : MonoBehaviour
     {
         ScoreManager.Instance.Save();
         InGameManager.Instance.SetActivePanel();
+        CameraManager.Instance.HighlightOff();
     }
 }

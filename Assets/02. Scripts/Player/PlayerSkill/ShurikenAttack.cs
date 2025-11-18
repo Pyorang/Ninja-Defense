@@ -6,6 +6,7 @@ public class ShurikenAttack : Skill
     [Header("표창 개수")]
     [Space]
     [SerializeField] private int _currentShurikenCount = 10;
+    [SerializeField] private int _maxShurikenCount = 15;
     public int ShurikenCount
     {
         get { return _currentShurikenCount; }
@@ -49,7 +50,7 @@ public class ShurikenAttack : Skill
 
     public void AddShuriken(int addCount, Vector3 position)
     {
-        ShurikenCount++;
+        ShurikenCount = Mathf.Min(_maxShurikenCount, ShurikenCount + addCount);
         AudioManager.Instance.PlaySound("Item", AudioType.SFX);
         Instantiate(_glowEffectPrefab, position, Quaternion.identity);
     }
